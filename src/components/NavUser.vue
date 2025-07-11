@@ -37,6 +37,8 @@ const props = defineProps<{
   }
 }>()
 
+const { user } = props
+
 const { isMobile } = useSidebar()
 </script>
 

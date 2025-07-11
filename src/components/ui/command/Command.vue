@@ -68,6 +68,10 @@ function handleSelect() {
   filterState.search = ''
 }
 
+if(false) {
+  handleSelect()
+}
+
 watch(() => filterState.search, () => {
   filterItems()
 })
