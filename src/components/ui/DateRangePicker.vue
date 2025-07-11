@@ -5,13 +5,13 @@ import { Calendar as CalendarIcon } from 'lucide-vue-next'
 
 import { ref, type Ref } from 'vue'
 import { cn } from '@/lib/utils'
-import { Button } from '@/registry/new-york/ui/button'
+import { Button } from '@/components/ui/button'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york/ui/popover'
-import { RangeCalendar } from '@/registry/new-york/ui/range-calendar'
+} from '@/components/ui/popover'
+import { RangeCalendar } from '@/components/ui/range-calendar'
 
 const df = new DateFormatter('en-US', {
   dateStyle: 'medium',

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ChevronsUpDown, Plus } from 'lucide-vue-next'
 
-import { type Component, ref } from 'vue'
+import { type Component, ref, computed } from 'vue'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,31 +19,38 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-const props = defineProps<{
-  teams: {
-    name: string
-    logo: Component
-    plan: string
-  }[]
-}>()
+interface Team {
+  name: string
+  logo: Component
+  plan: string
+}
+
+const props = withDefaults(defineProps<{
+  teams?: Team[]
+}>(), {
+  teams: () => []
+})
 
 const { isMobile } = useSidebar()
-const activeTeam = ref(props.teams[0])
+const activeTeam = ref<Team | null>(props.teams[0] || null)
+
+// Computed property to safely get the first team or null
+const firstTeam = computed(() => props.teams[0] || null)
 </script>
 
 <template>
   <SidebarMenu>
-    <SidebarMenuItem>
+    <SidebarMenuItem v-if="firstTeam">
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <SidebarMenuButton
             size="lg"
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >
-            <div class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+            <div v-if="activeTeam" class="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
               <component :is="activeTeam.logo" class="size-4" />
             </div>
-            <div class="grid flex-1 text-left text-sm leading-tight">
+            <div v-if="activeTeam" class="grid flex-1 text-left text-sm leading-tight">
               <span class="truncate font-medium">
                 {{ activeTeam.name }}
               </span>
