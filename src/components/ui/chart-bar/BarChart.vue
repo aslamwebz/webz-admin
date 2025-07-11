@@ -78,7 +78,7 @@ const selectorsBar = computed(() => props.type === 'grouped' ? GroupedBar.select
         :bar-padding="0.05"
         :attributes="{
           [selectorsBar]: {
-            opacity: (d: Data, i:number) => {
+            opacity: (_d: Data, i:number) => {
               const pos = i % categories.length
               return legendItems[pos]?.inactive ? filterOpacity : 1
             },
