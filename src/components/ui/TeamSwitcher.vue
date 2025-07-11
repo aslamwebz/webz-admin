@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import CaretSortIcon from '~icons/radix-icons/caret-sort'
-import CheckIcon from '~icons/radix-icons/check'
-import PlusCircledIcon from '~icons/radix-icons/plus-circled'
+import { CaretSortIcon } from '@radix-icons/vue'
+import { CheckIcon } from '@radix-icons/vue'
+import { PlusCircledIcon } from '@radix-icons/vue'
 
 import { cn } from '@/lib/utils'
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/registry/new-york/ui/avatar'
-import { Button } from '@/registry/new-york/ui/button'
+} from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/registry/new-york/ui/command'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
 import {
   Dialog,
   DialogContent,
@@ -21,21 +21,21 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/new-york/ui/dialog'
-import { Input } from '@/registry/new-york/ui/input'
-import { Label } from '@/registry/new-york/ui/label'
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/registry/new-york/ui/popover'
+} from '@/components/ui/popover'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/registry/new-york/ui/select'
+} from '@/components/ui/select'
 
 const groups = [
   {

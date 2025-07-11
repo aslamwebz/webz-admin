@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@iconify-json/radix-icons": "^1.2.2",
+    "@radix-icons/vue": "^1.0.0",
     "@tailwindcss/vite": "^4.1.11",
     "@unovis/ts": "^1.5.2",
     "@unovis/vue": "^1.5.2",
