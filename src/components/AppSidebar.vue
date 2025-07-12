@@ -1,18 +1,7 @@
 <script setup lang="ts">
 import type { SidebarProps } from '@/components/ui/sidebar'
 
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from 'lucide-vue-next'
+import { LayoutDashboard, ListChecks, Package, MessageSquare, Users, Lock, Bug, Settings, HelpCircle } from 'lucide-vue-next'
 import NavMain from '@/components/NavMain.vue'
 import NavProjects from '@/components/NavProjects.vue'
 import NavUser from '@/components/NavUser.vue'
@@ -30,134 +19,93 @@ const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'icon',
 })
 
-// This is sample data.
+// Navigation data
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: 'satnaing',
+    email: 'satnaingdev@gmail.com',
+    avatar: '',
   },
-  teams: [
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Command,
-      plan: 'Free',
-    },
-  ],
   navMain: [
     {
-      title: 'Playground',
-      url: '#',
-      icon: SquareTerminal,
+      title: 'Dashboard',
+      url: '/',
+      icon: LayoutDashboard,
       isActive: true,
+    },
+    {
+      title: 'Tasks',
+      url: '/tasks',
+      icon: ListChecks,
+      isActive: false,
+      badge: '3',
+    },
+    {
+      title: 'Apps',
+      url: '/apps',
+      icon: Package,
+      isActive: false,
+    },
+    {
+      title: 'Chats',
+      url: '/chats',
+      icon: MessageSquare,
+      isActive: false,
+      badge: '3',
+    },
+    {
+      title: 'Users',
+      url: '/users',
+      icon: Users,
+      isActive: false,
+    },
+    {
+      title: 'Auth',
+      url: '#',
+      icon: Lock,
+      isActive: false,
       items: [
-        {
-          title: 'History',
-          url: '#',
-        },
-        {
-          title: 'Starred',
-          url: '#',
-        },
-        {
-          title: 'Settings',
-          url: '#',
-        },
+        { title: 'Sign In', url: '/sign-in' },
+        { title: 'Sign In (2 Col)', url: '/sign-in-2' },
+        { title: 'Sign Up', url: '/sign-up' },
+        { title: 'Forgot Password', url: '/forgot-password' },
+        { title: 'OTP', url: '/otp' },
       ],
     },
     {
-      title: 'Models',
+      title: 'Errors',
       url: '#',
-      icon: Bot,
+      icon: Bug,
+      isActive: false,
       items: [
-        {
-          title: 'Genesis',
-          url: '#',
-        },
-        {
-          title: 'Explorer',
-          url: '#',
-        },
-        {
-          title: 'Quantum',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Documentation',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
+        { title: 'Unauthorized', url: '/401' },
+        { title: 'Forbidden', url: '/403' },
+        { title: 'Not Found', url: '/404' },
+        { title: 'Internal Server', url: '/500' },
+        { title: 'Maintenance', url: '/503' },
       ],
     },
     {
       title: 'Settings',
       url: '#',
-      icon: Settings2,
+      icon: Settings,
+      isActive: false,
       items: [
-        {
-          title: 'General',
-          url: '#',
-        },
-        {
-          title: 'Team',
-          url: '#',
-        },
-        {
-          title: 'Billing',
-          url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
-        },
+        { title: 'Profile', url: '/settings/profile' },
+        { title: 'Account', url: '/settings/account' },
+        { title: 'Appearance', url: '/settings/appearance' },
+        { title: 'Notifications', url: '/settings/notifications' },
+        { title: 'Display', url: '/settings/display' },
       ],
     },
-  ],
-  projects: [
     {
-      name: 'Design Engineering',
-      url: '#',
-      icon: Frame,
-    },
-    {
-      name: 'Sales & Marketing',
-      url: '#',
-      icon: PieChart,
-    },
-    {
-      name: 'Travel',
-      url: '#',
-      icon: Map,
+      title: 'Help Center',
+      url: '/help-center',
+      icon: HelpCircle,
+      isActive: false,
     },
   ],
+  projects: [],
 }
 </script>
 
