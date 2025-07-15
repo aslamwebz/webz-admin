@@ -140,7 +140,6 @@ declare module 'vue' {
     SidebarMenuSub: typeof import('./src/components/sidebar/SidebarMenuSub.vue')['default']
     SidebarMenuSubButton: typeof import('./src/components/sidebar/SidebarMenuSubButton.vue')['default']
     SidebarMenuSubItem: typeof import('./src/components/sidebar/SidebarMenuSubItem.vue')['default']
-    SidebarNav: typeof import('./src/components/ui/sidebar/SidebarNav.vue')['default']
     SidebarProvider: typeof import('./src/components/sidebar/SidebarProvider.vue')['default']
     SidebarRail: typeof import('./src/components/sidebar/SidebarRail.vue')['default']
     SidebarSeparator: typeof import('./src/components/sidebar/SidebarSeparator.vue')['default']
