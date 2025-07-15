@@ -25,7 +25,7 @@ const task = ref({
 const statusVariant = (status: string) => {
   switch (status) {
     case 'done':
-      return 'success'
+      return 'default' // Changed from 'success' to 'default' as 'success' is not a valid variant
     case 'in progress':
       return 'default'
     case 'todo':
