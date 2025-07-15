@@ -36,16 +36,14 @@ export default defineConfig({
           'vendor': [
             'vue',
             'vue-router',
-            'pinia',
-            'vue-i18n',
+            'pinia'
           ],
           // Group UI components
           'ui': [
-            '@radix-ui/*',
             'class-variance-authority',
             'clsx',
             'tailwind-merge',
-            'tailwindcss-animate',
+            'tailwindcss-animate'
           ],
           // Group icons
           'icons': [
