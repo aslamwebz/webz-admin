@@ -28,4 +28,40 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Group vendor dependencies
+          'vendor': [
+            'vue',
+            'vue-router',
+            'pinia',
+            'vue-i18n',
+          ],
+          // Group UI components
+          'ui': [
+            '@radix-ui/*',
+            'class-variance-authority',
+            'clsx',
+            'tailwind-merge',
+            'tailwindcss-animate',
+          ],
+          // Group icons
+          'icons': [
+            'lucide-vue-next',
+            'unplugin-icons',
+          ],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Increase chunk size warning limit to 1000 kB
+  },
+  optimizeDeps: {
+    include: [
+      'vue',
+      'vue-router',
+      '@vueuse/core',
+    ],
+  },
 })

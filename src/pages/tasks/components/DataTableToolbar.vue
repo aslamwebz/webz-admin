@@ -3,7 +3,7 @@ import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
 import { computed } from 'vue'
 
-import Cross2Icon from '~icons/radix-icons/cross-2'
+import { X } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
@@ -49,7 +49,7 @@ const isFiltered = computed(() => props.table.getState().columnFilters.length > 
         @click="table.resetColumnFilters()"
       >
         Reset
-        <Cross2Icon class="ml-2 h-4 w-4" />
+        <X class="mr-2 h-4 w-4" />
       </Button>
     </div>
     <DataTableViewOptions :table="table" />

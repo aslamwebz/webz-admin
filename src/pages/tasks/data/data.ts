@@ -1,12 +1,5 @@
 import { h } from 'vue'
-import ArrowDownIcon from '~icons/radix-icons/arrow-down'
-import ArrowRightIcon from '~icons/radix-icons/arrow-right'
-import ArrowUpIcon from '~icons/radix-icons/arrow-up'
-import CheckCircledIcon from '~icons/radix-icons/check-circled'
-import CircleIcon from '~icons/radix-icons/circle'
-import CrossCircledIcon from '~icons/radix-icons/cross-circled'
-import QuestionMarkCircledIcon from '~icons/radix-icons/question-mark-circled'
-import StopwatchIcon from '~icons/radix-icons/stopwatch'
+import { ArrowDown, ArrowRight, ArrowUp, CheckCircle2, Circle, XCircle, HelpCircle, Clock } from 'lucide-vue-next'
 
 export const labels = [
   {
@@ -27,27 +20,27 @@ export const statuses = [
   {
     value: 'backlog',
     label: 'Backlog',
-    icon: h(QuestionMarkCircledIcon),
+    icon: h(HelpCircle),
   },
   {
     value: 'todo',
     label: 'Todo',
-    icon: h(CircleIcon),
+    icon: h(Circle),
   },
   {
     value: 'in progress',
     label: 'In Progress',
-    icon: h(StopwatchIcon),
+    icon: h(Clock),
   },
   {
     value: 'done',
     label: 'Done',
-    icon: h(CheckCircledIcon),
+    icon: h(CheckCircle2),
   },
   {
     value: 'canceled',
     label: 'Canceled',
-    icon: h(CrossCircledIcon),
+    icon: h(XCircle),
   },
 ]
 
@@ -55,16 +48,16 @@ export const priorities = [
   {
     value: 'low',
     label: 'Low',
-    icon: h(ArrowDownIcon),
+    icon: h(ArrowDown),
   },
   {
     value: 'medium',
     label: 'Medium',
-    icon: h(ArrowRightIcon),
+    icon: h(ArrowRight),
   },
   {
     value: 'high',
     label: 'High',
-    icon: h(ArrowUpIcon),
+    icon: h(ArrowUp),
   },
 ]

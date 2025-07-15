@@ -1,25 +1,25 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import AdminPage from '../pages/AdminPage.vue'
 
-// Lazy load pages
-const Dashboard = () => import('@/pages/Dashboard.vue')
-const ProfileSettings = () => import('@/pages/settings/profile.vue')
-const AccountSettings = () => import('@/pages/settings/account.vue')
-const AppearanceSettings = () => import('@/pages/settings/appearance.vue')
-const NotificationsSettings = () => import('@/pages/settings/notifications.vue')
-const DisplaySettings = () => import('@/pages/settings/display.vue')
+// Lazy load pages with webpackChunkName for better code splitting
+const Dashboard = () => import(/* webpackChunkName: "dashboard" */ '@/pages/Dashboard.vue')
+const ProfileSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/profile.vue')
+const AccountSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/account.vue')
+const AppearanceSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/appearance.vue')
+const NotificationsSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/notifications.vue')
+const DisplaySettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/display.vue')
 
 // Task pages
-const Tasks = () => import('@/pages/tasks/index.vue')
-const TaskDetails = () => import('@/pages/tasks/[id].vue')
-const TaskForm = () => import('@/pages/tasks/TaskForm.vue')
+const Tasks = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/index.vue')
+const TaskDetails = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/[id].vue')
+const TaskForm = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/TaskForm.vue')
 
-// Error pages
-const Unauthorized = () => import('@/pages/errors/Unauthorized.vue')
-const Forbidden = () => import('@/pages/errors/Forbidden.vue')
-const NotFound = () => import('@/pages/errors/NotFound.vue')
-const InternalServerError = () => import('@/pages/errors/InternalServerError.vue')
-const ServiceUnavailable = () => import('@/pages/errors/ServiceUnavailable.vue')
+// Error pages (grouped together as they're rarely needed)
+const Unauthorized = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Unauthorized.vue')
+const Forbidden = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Forbidden.vue')
+const NotFound = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/NotFound.vue')
+const InternalServerError = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/InternalServerError.vue')
+const ServiceUnavailable = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/ServiceUnavailable.vue')
 
 const routes: RouteRecordRaw[] = [
   {

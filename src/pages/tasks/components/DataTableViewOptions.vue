@@ -2,7 +2,7 @@
 import type { Table } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
 import { computed } from 'vue'
-import MixerHorizontalIcon from '~icons/radix-icons/mixer-horizontal'
+import { SlidersHorizontal } from 'lucide-vue-next'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -35,7 +35,7 @@ const columns = computed(() => props.table.getAllColumns()
         size="sm"
         class="ml-auto hidden h-8 lg:flex"
       >
-        <MixerHorizontalIcon class="mr-2 h-4 w-4" />
+        <SlidersHorizontal class="mr-2 h-4 w-4" />
         View
       </Button>
     </DropdownMenuTrigger>

@@ -2,7 +2,7 @@
 import type { Row } from '@tanstack/vue-table'
 import type { Task } from '../data/schema'
 import { computed } from 'vue'
-import DotsHorizontalIcon from '~icons/radix-icons/dots-horizontal'
+import { MoreHorizontal } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -36,7 +36,7 @@ const task = computed(() => taskSchema.parse(props.row.original))
         variant="ghost"
         class="flex h-8 w-8 p-0 data-[state=open]:bg-muted"
       >
-        <DotsHorizontalIcon class="h-4 w-4" />
+        <MoreHorizontal class="h-4 w-4" />
         <span class="sr-only">Open menu</span>
       </Button>
     </DropdownMenuTrigger>
