@@ -22,8 +22,8 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 // Navigation data
 const data = {
   user: {
-    name: 'satnaing',
-    email: 'satnaingdev@gmail.com',
+    name: 'Em',
+    email: 'aslam4webz@gmail.com',
     avatar: '',
   },
   navMain: [
@@ -38,7 +38,6 @@ const data = {
       url: '/tasks',
       icon: ListChecks,
       isActive: false,
-      badge: '3',
     },
     {
       title: 'Apps',
