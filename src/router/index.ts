@@ -16,6 +16,9 @@ const AppearanceSettings = () => import(/* webpackChunkName: "settings" */ '@/pa
 const NotificationsSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/notifications.vue')
 const DisplaySettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/display.vue')
 
+// Users page
+const Users = () => import(/* webpackChunkName: "users" */ '@/pages/users/index.vue')
+
 // Task pages
 const Tasks = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/index.vue')
 const TaskDetails = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/[id].vue')
@@ -62,6 +65,12 @@ const routes: RouteRecordRaw[] = [
         path: 'settings/display',
         name: 'DisplaySettings',
         component: DisplaySettings,
+      },
+      // Users route
+      {
+        path: 'users',
+        name: 'Users',
+        component: Users,
       },
       // Tasks routes
       {
