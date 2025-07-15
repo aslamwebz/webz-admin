@@ -3,6 +3,13 @@ import AdminPage from '../pages/AdminPage.vue'
 
 // Lazy load pages with webpackChunkName for better code splitting
 const Dashboard = () => import(/* webpackChunkName: "dashboard" */ '@/pages/Dashboard.vue')
+
+// Auth pages
+const LoginForm1 = () => import(/* webpackChunkName: "auth" */ '@/pages/Auth/Login/LoginForm1.vue')
+const LoginForm2 = () => import(/* webpackChunkName: "auth" */ '@/pages/Auth/Login/LoginForm2.vue')
+const LoginForm3 = () => import(/* webpackChunkName: "auth" */ '@/pages/Auth/Login/LoginForm3.vue')
+const LoginForm4 = () => import(/* webpackChunkName: "auth" */ '@/pages/Auth/Login/LoginForm4.vue')
+const LoginForm5 = () => import(/* webpackChunkName: "auth" */ '@/pages/Auth/Login/LoginForm5.vue')
 const ProfileSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/profile.vue')
 const AccountSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/account.vue')
 const AppearanceSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/appearance.vue')
@@ -78,6 +85,37 @@ const routes: RouteRecordRaw[] = [
         name: 'EditTask',
         component: TaskForm,
         props: true,
+      },
+      // Auth pages
+      {
+        path: '/login/1',
+        name: 'LoginForm1',
+        component: LoginForm1,
+        meta: { layout: 'empty' }
+      },
+      {
+        path: '/login/2',
+        name: 'LoginForm2',
+        component: LoginForm2,
+        meta: { layout: 'empty' }
+      },
+      {
+        path: '/login/3',
+        name: 'LoginForm3',
+        component: LoginForm3,
+        meta: { layout: 'empty' }
+      },
+      {
+        path: '/login/4',
+        name: 'LoginForm4',
+        component: LoginForm4,
+        meta: { layout: 'empty' }
+      },
+      {
+        path: '/login/5',
+        name: 'LoginForm5',
+        component: LoginForm5,
+        meta: { layout: 'empty' }
       },
       // Error pages
       {

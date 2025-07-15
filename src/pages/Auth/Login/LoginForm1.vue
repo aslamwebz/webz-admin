@@ -12,7 +12,8 @@ import { Label } from '@/components/ui/label'
 </script>
 
 <template>
-  <Card class="mx-auto max-w-sm">
+  <div class="h-screen flex items-center justify-center mt-[-10vh]">
+  <Card class="flex w-full justify-center mx-auto max-w-sm">
     <CardHeader>
       <CardTitle class="text-2xl">
         Login
@@ -56,4 +57,5 @@ import { Label } from '@/components/ui/label'
       </div>
     </CardContent>
   </Card>
+  </div>
 </template>

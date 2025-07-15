@@ -64,11 +64,11 @@ const data = {
       icon: Lock,
       isActive: false,
       items: [
-        { title: 'Sign In', url: '/sign-in' },
-        { title: 'Sign In (2 Col)', url: '/sign-in-2' },
-        { title: 'Sign Up', url: '/sign-up' },
-        { title: 'Forgot Password', url: '/forgot-password' },
-        { title: 'OTP', url: '/otp' },
+        { title: 'Login Form 1', url: '/login/1' },
+        { title: 'Login Form 2', url: '/login/2' },
+        { title: 'Login Form 3', url: '/login/3' },
+        { title: 'Login Form 4', url: '/login/4' },
+        { title: 'Login Form 5', url: '/login/5' },
       ],
     },
     {
