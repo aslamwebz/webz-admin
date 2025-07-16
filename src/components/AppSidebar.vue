@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { SidebarProps } from '@/components/ui/sidebar'
 
-import { LayoutDashboard, ListChecks, Package, Users, Lock, Bug, Settings, HelpCircle, ShoppingBag, User } from 'lucide-vue-next'
+import { LayoutDashboard, ListChecks, Package, Users, Lock, Bug, Settings, HelpCircle, ShoppingBag, User, Tags } from 'lucide-vue-next'
 import NavMain from '@/components/NavMain.vue'
 import NavProjects from '@/components/NavProjects.vue'
 import NavUser from '@/components/NavUser.vue'
@@ -44,6 +44,12 @@ const data = {
       title: 'Products',
       url: '/products',
       icon: Package,
+      isActive: false,
+    },
+    {
+      title: 'Categories',
+      url: '/categories',
+      icon: Tags,
       isActive: false,
     },
     {

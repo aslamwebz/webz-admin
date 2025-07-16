@@ -24,6 +24,12 @@ const Tasks = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/index.
 const TaskDetails = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/[id].vue')
 const TaskForm = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/TaskForm.vue')
 
+// Category pages
+const Categories = () => import(/* webpackChunkName: "categories" */ '@/pages/categories/index.vue')
+const CategoryDetails = () => import(/* webpackChunkName: "categories" */ '@/pages/categories/[id]/index.vue')
+const CategoryForm = () => import(/* webpackChunkName: "categories" */ '@/pages/categories/[id]/edit.vue')
+const NewCategory = () => import(/* webpackChunkName: "categories" */ '@/pages/categories/new.vue')
+
 // Product pages
 const Products = () => import(/* webpackChunkName: "products" */ '@/pages/products/index.vue')
 const ProductDetails = () => import(/* webpackChunkName: "products" */ '@/pages/products/[id]/index.vue')
@@ -122,6 +128,29 @@ const routes: RouteRecordRaw[] = [
         path: 'products/:id/edit',
         name: 'EditProduct',
         component: ProductForm,
+        props: true,
+      },
+      // Categories routes
+      {
+        path: 'categories',
+        name: 'Categories',
+        component: Categories,
+      },
+      {
+        path: 'categories/new',
+        name: 'NewCategory',
+        component: NewCategory,
+      },
+      {
+        path: 'categories/:id',
+        name: 'CategoryDetails',
+        component: CategoryDetails,
+        props: true,
+      },
+      {
+        path: 'categories/:id/edit',
+        name: 'EditCategory',
+        component: CategoryForm,
         props: true,
       },
       // Auth pages
