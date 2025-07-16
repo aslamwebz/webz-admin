@@ -5,7 +5,7 @@ import UserNav from '@/components/ui/UserNav.vue'
 import AppSidebar from '@/components/AppSidebar.vue'
 import TeamSwitcher from '@/components/TeamSwitcher.vue'
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
-import ThemeToggle from '@/components/theme/ThemeToggle.vue'
+import ThemeSwitch from '@/components/theme/ThemeSwitch.vue'
 import Dashboard from '@/pages/Dashboard.vue'
 
 defineOptions({
@@ -32,7 +32,7 @@ defineOptions({
                         <MainNav class="mx-6" />
                         <div class="ml-auto flex items-center space-x-4">
                             <Search />
-                            <ThemeToggle />
+                            <ThemeSwitch />
                             <UserNav />
                         </div>
                     </div>

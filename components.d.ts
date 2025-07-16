@@ -163,6 +163,7 @@ declare module 'vue' {
     TeamSwitcher: typeof import('./src/components/TeamSwitcher.vue')['default']
     Textarea: typeof import('./src/components/ui/textarea/Textarea.vue')['default']
     ThemeProvider: typeof import('./src/components/theme/ThemeProvider.vue')['default']
+    ThemeSwitch: typeof import('./src/components/theme/ThemeSwitch.vue')['default']
     ThemeToggle: typeof import('./src/components/theme/ThemeToggle.vue')['default']
     Toast: typeof import('./src/components/ui/toast/Toast.vue')['default']
     ToastAction: typeof import('./src/components/ui/toast/ToastAction.vue')['default']
