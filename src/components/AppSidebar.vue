@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { SidebarProps } from '@/components/ui/sidebar'
 
-import { LayoutDashboard, ListChecks, Package, MessageSquare, Users, Lock, Bug, Settings, HelpCircle } from 'lucide-vue-next'
+import { LayoutDashboard, ListChecks, Package, Users, Lock, Bug, Settings, HelpCircle, ShoppingBag, User } from 'lucide-vue-next'
 import NavMain from '@/components/NavMain.vue'
 import NavProjects from '@/components/NavProjects.vue'
 import NavUser from '@/components/NavUser.vue'
+import AppLogo from '@/components/AppLogo.vue'
 
 
 import {
@@ -40,17 +41,22 @@ const data = {
       isActive: false,
     },
     {
-      title: 'Apps',
-      url: '/apps',
+      title: 'Products',
+      url: '/products',
       icon: Package,
       isActive: false,
     },
     {
-      title: 'Chats',
-      url: '/chats',
-      icon: MessageSquare,
+      title: 'Orders',
+      url: '/orders',
+      icon: ShoppingBag,
       isActive: false,
-      badge: '3',
+    },
+    {
+      title: 'Customers',
+      url: '/customers',
+      icon: User,
+      isActive: false,
     },
     {
       title: 'Users',
@@ -110,7 +116,9 @@ const data = {
 
 <template>
   <Sidebar v-bind="props">
-    <SidebarHeader />
+    <SidebarHeader>
+      <AppLogo />
+    </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />
       <NavProjects :projects="data.projects" />
