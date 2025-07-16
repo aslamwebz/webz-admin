@@ -4,7 +4,7 @@ import { Moon, Sun } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/composables/useTheme'
 
-const { theme, setTheme, isDark } = useTheme()
+const { setTheme, isDark } = useTheme()
 
 const toggleTheme = () => {
   setTheme(isDark.value ? 'light' : 'dark')

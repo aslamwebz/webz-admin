@@ -24,6 +24,12 @@ const Tasks = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/index.
 const TaskDetails = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/[id].vue')
 const TaskForm = () => import(/* webpackChunkName: "tasks" */ '@/pages/tasks/TaskForm.vue')
 
+// Product pages
+const Products = () => import(/* webpackChunkName: "products" */ '@/pages/products/index.vue')
+const ProductDetails = () => import(/* webpackChunkName: "products" */ '@/pages/products/[id]/index.vue')
+const ProductForm = () => import(/* webpackChunkName: "products" */ '@/pages/products/[id]/edit.vue')
+const NewProduct = () => import(/* webpackChunkName: "products" */ '@/pages/products/new.vue')
+
 // Error pages (grouped together as they're rarely needed)
 const Unauthorized = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Unauthorized.vue')
 const Forbidden = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Forbidden.vue')
@@ -93,6 +99,29 @@ const routes: RouteRecordRaw[] = [
         path: 'tasks/:id/edit',
         name: 'EditTask',
         component: TaskForm,
+        props: true,
+      },
+      // Products routes
+      {
+        path: 'products',
+        name: 'Products',
+        component: Products,
+      },
+      {
+        path: 'products/new',
+        name: 'NewProduct',
+        component: NewProduct,
+      },
+      {
+        path: 'products/:id',
+        name: 'ProductDetails',
+        component: ProductDetails,
+        props: true,
+      },
+      {
+        path: 'products/:id/edit',
+        name: 'EditProduct',
+        component: ProductForm,
         props: true,
       },
       // Auth pages
