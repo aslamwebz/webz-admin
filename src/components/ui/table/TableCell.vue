@@ -12,6 +12,10 @@ const props = defineProps<{
     :class="
       cn(
         'p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5',
+        'border-b border-border',
+        'text-foreground',
+        'group-hover:bg-muted/20',
+        'dark:group-hover:bg-muted/10',
         props.class,
       )
     "

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { ChevronDown, MoreHorizontal, Plus, Search } from 'lucide-vue-next'
+import { mockCustomers } from '@/types/customer'
 import { 
   Table, 
   TableBody, 
@@ -30,6 +31,11 @@ const searchQuery = ref('')
 const statusFilter = ref('all')
 const sortBy = ref('date')
 const sortDirection = ref('desc')
+
+// Find customer by ID
+const findCustomerById = (customerId: string) => {
+  return mockCustomers.find(customer => customer.id === customerId)
+}
 
 // Computed
 const filteredOrders = computed(() => {
@@ -193,12 +199,12 @@ onMounted(() => {
             class="cursor-pointer hover:bg-muted/50"
             @click="router.push(`/orders/${order.id}`)"
           >
-            <TableCell class="font-medium">
+            <TableCell class="font-medium whitespace-nowrap">
               {{ order.orderNumber }}
             </TableCell>
             <TableCell>
-              <div v-if="order.customer">
-                {{ order.customer.firstName }} {{ order.customer.lastName }}
+              <div v-if="findCustomerById(order.customerId)">
+                {{ findCustomerById(order.customerId)?.firstName }} {{ findCustomerById(order.customerId)?.lastName }}
               </div>
               <div v-else class="text-muted-foreground">
                 Customer not found

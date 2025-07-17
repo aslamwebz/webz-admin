@@ -24,11 +24,18 @@ const orderItems = computed(() => {
   if (!order.value) return []
   
   return order.value.items.map(item => {
-    const product = mockProducts.find(p => p.id === item.productId)
+    // Try to find the product by ID (with or without 'prod_' prefix)
+    const product = mockProducts.find(p => 
+      p.id === item.productId || 
+      p.id === item.productId.replace('prod_', '')
+    )
+    
+    // Use product data if found, otherwise use item data with fallbacks
     return {
       ...item,
-      productName: product?.name || 'Unknown Product',
-      image: product?.image || ''
+      productName: product?.name || item.productName || 'Unknown Product',
+      image: product?.image || 'https://placehold.co/100x100?text=No+Image',
+      price: product?.price || item.price || 0
     }
   })
 })
