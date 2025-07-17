@@ -6,6 +6,9 @@ import DateRangePicker from '@/components/ui/DateRangePicker.vue'
 import Overview from '@/components/ui/Overview.vue'
 import RecentSales from '@/components/ui/RecentSales.vue'
 import { CardDescription } from '@/components/ui/card'
+import AnalyticsTab from '@/components/dashboard/AnalyticsTab.vue'
+import ReportsTab from '@/components/dashboard/ReportsTab.vue'
+import NotificationsTab from '@/components/dashboard/NotificationsTab.vue'
 </script>
 
 <template>
@@ -24,13 +27,13 @@ import { CardDescription } from '@/components/ui/card'
                 <TabsTrigger value="overview">
                     Overview
                 </TabsTrigger>
-                <TabsTrigger value="analytics" disabled>
+                <TabsTrigger value="analytics">
                     Analytics
                 </TabsTrigger>
-                <TabsTrigger value="reports" disabled>
+                <TabsTrigger value="reports">
                     Reports
                 </TabsTrigger>
-                <TabsTrigger value="notifications" disabled>
+                <TabsTrigger value="notifications">
                     Notifications
                 </TabsTrigger>
             </TabsList>
@@ -141,6 +144,21 @@ import { CardDescription } from '@/components/ui/card'
                         </CardContent>
                     </Card>
                 </div>
+            </TabsContent>
+            
+            <!-- Analytics Tab Content -->
+            <TabsContent value="analytics" class="space-y-4">
+                <AnalyticsTab />
+            </TabsContent>
+            
+            <!-- Reports Tab Content -->
+            <TabsContent value="reports" class="space-y-4">
+                <ReportsTab />
+            </TabsContent>
+            
+            <!-- Notifications Tab Content -->
+            <TabsContent value="notifications" class="space-y-4">
+                <NotificationsTab />
             </TabsContent>
         </Tabs>
     </div>
