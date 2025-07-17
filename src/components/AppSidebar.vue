@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { SidebarProps } from '@/components/ui/sidebar'
-
+import { useSidebar } from '@/components/ui/sidebar/utils'
 import { LayoutDashboard, ListChecks, Package, Users, Lock, Bug, Settings, HelpCircle, ShoppingBag, User, Tags } from 'lucide-vue-next'
 import NavMain from '@/components/NavMain.vue'
 import NavProjects from '@/components/NavProjects.vue'
 import NavUser from '@/components/NavUser.vue'
 import AppLogo from '@/components/AppLogo.vue'
-
 
 import {
   Sidebar,
@@ -15,6 +15,9 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar'
+
+const { state } = useSidebar()
+const isCollapsed = computed(() => state.value === 'collapsed')
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: 'icon',
@@ -123,7 +126,7 @@ const data = {
 <template>
   <Sidebar v-bind="props">
     <SidebarHeader>
-      <AppLogo />
+      <AppLogo :collapsed="isCollapsed" />
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="data.navMain" />

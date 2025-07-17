@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const { collapsed } = defineProps<{
+  collapsed?: boolean
+}>()
+</script>
+
 <template>
   <div class="flex items-center justify-center py-4">
     <div class="flex items-center space-x-2">
@@ -19,7 +25,7 @@
           class="fill-primary"
         />
       </svg>
-      <span class="text-xl font-bold text-foreground">ShadAdmin</span>
+      <span v-if="!collapsed" class="text-xl font-bold text-foreground whitespace-nowrap">ShadAdmin</span>
     </div>
   </div>
 </template>
