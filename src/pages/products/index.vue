@@ -4,16 +4,7 @@ import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
-import { 
-  Plus, 
-  Search, 
-  MoreHorizontal, 
-  ArrowUpDown,
-  ChevronDown,
-  Eye,
-  Pencil,
-  Trash2
-} from 'lucide-vue-next'
+import { Plus, Search, MoreHorizontal, Trash2, Eye, Pencil } from 'lucide-vue-next'
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -36,14 +27,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { 
   Dialog, 
   DialogContent, 
@@ -52,7 +36,8 @@ import {
   DialogHeader, 
   DialogTitle 
 } from '@/components/ui/dialog'
-import { Product, mockProducts, productCategories, productStatuses } from '@/types/product'
+import type { Product } from '@/types/product'
+import { mockProducts, productCategories, productStatuses } from '@/types/product'
 
 const router = useRouter()
 const searchQuery = ref('')
@@ -104,19 +89,6 @@ const formatPrice = (price: number) => {
     style: 'currency',
     currency: 'USD',
   }).format(price)
-}
-
-const getStatusVariant = (status: string) => {
-  switch (status) {
-    case 'in_stock':
-      return 'success'
-    case 'low_stock':
-      return 'warning'
-    case 'out_of_stock':
-      return 'destructive'
-    default:
-      return 'default'
-  }
 }
 </script>
 
@@ -240,7 +212,7 @@ const getStatusVariant = (status: string) => {
                 {{ productCategories.find(c => c.value === product.category)?.label || product.category }}
               </TableCell>
               <TableCell>
-                <Badge :variant="getStatusVariant(product.status)">
+                <Badge :variant="product.status === 'in_stock' ? 'default' : 'destructive'">
                   {{ productStatuses.find(s => s.value === product.status)?.label || product.status }}
                 </Badge>
               </TableCell>

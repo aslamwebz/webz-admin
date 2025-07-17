@@ -7,9 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { 
   Card, 
   CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
+  CardHeader 
 } from '@/components/ui/card'
 import { 
   Table, 

@@ -85,19 +85,6 @@ const formatDate = (dateString: string) => {
   })
 }
 
-const getStatusVariant = (status: string) => {
-  switch (status) {
-    case 'in_stock':
-      return 'success'
-    case 'low_stock':
-      return 'warning'
-    case 'out_of_stock':
-      return 'destructive'
-    default:
-      return 'default'
-  }
-}
-
 const getStatusLabel = (status: string) => {
   return {
     in_stock: 'In Stock',
@@ -239,7 +226,7 @@ onMounted(() => {
                       <td>${{ product.price.toFixed(2) }}</td>
                       <td>{{ product.stock }} units</td>
                       <td>
-                        <Badge :variant="getStatusVariant(product.status)">
+                        <Badge :variant="product.status === 'in_stock' ? 'default' : 'destructive'">
                           {{ getStatusLabel(product.status) }}
                         </Badge>
                       </td>

@@ -36,6 +36,18 @@ const ProductDetails = () => import(/* webpackChunkName: "products" */ '@/pages/
 const ProductForm = () => import(/* webpackChunkName: "products" */ '@/pages/products/[id]/edit.vue')
 const NewProduct = () => import(/* webpackChunkName: "products" */ '@/pages/products/new.vue')
 
+// Customer pages
+const Customers = () => import(/* webpackChunkName: "customers" */ '@/pages/customers/index.vue')
+const CustomerDetails = () => import(/* webpackChunkName: "customers" */ '@/pages/customers/[id]/index.vue')
+const CustomerEdit = () => import(/* webpackChunkName: "customers" */ '@/pages/customers/[id]/edit.vue')
+const NewCustomer = () => import(/* webpackChunkName: "customers" */ '@/pages/customers/new.vue')
+
+// Order pages
+const Orders = () => import(/* webpackChunkName: "orders" */ '@/pages/orders/index.vue')
+const OrderDetails = () => import(/* webpackChunkName: "orders" */ '@/pages/orders/[id]/index.vue')
+const EditOrder = () => import(/* webpackChunkName: "orders" */ '@/pages/orders/[id]/edit.vue')
+const NewOrder = () => import(/* webpackChunkName: "orders" */ '@/pages/orders/new.vue')
+
 // Error pages (grouped together as they're rarely needed)
 const Unauthorized = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Unauthorized.vue')
 const Forbidden = () => import(/* webpackChunkName: "errors" */ '@/pages/errors/Forbidden.vue')
@@ -109,26 +121,57 @@ const routes: RouteRecordRaw[] = [
       },
       // Products routes
       {
-        path: 'products',
-        name: 'Products',
+        path: '/products',
+        name: 'products',
         component: Products,
+        meta: { title: 'Products' }
       },
       {
-        path: 'products/new',
-        name: 'NewProduct',
+        path: '/products/new',
+        name: 'new-product',
         component: NewProduct,
+        meta: { title: 'New Product' }
       },
       {
-        path: 'products/:id',
-        name: 'ProductDetails',
+        path: '/products/:id',
+        name: 'product-details',
         component: ProductDetails,
-        props: true,
+        meta: { title: 'Product Details' },
+        props: true
       },
       {
-        path: 'products/:id/edit',
-        name: 'EditProduct',
+        path: '/products/:id/edit',
+        name: 'edit-product',
         component: ProductForm,
-        props: true,
+        meta: { title: 'Edit Product' },
+        props: true
+      },
+      // Customers routes
+      {
+        path: '/customers',
+        name: 'customers',
+        component: Customers,
+        meta: { title: 'Customers' }
+      },
+      {
+        path: '/customers/new',
+        name: 'new-customer',
+        component: NewCustomer,
+        meta: { title: 'New Customer' }
+      },
+      {
+        path: '/customers/:id',
+        name: 'customer-details',
+        component: CustomerDetails,
+        meta: { title: 'Customer Details' },
+        props: true
+      },
+      {
+        path: '/customers/:id/edit',
+        name: 'edit-customer',
+        component: CustomerEdit,
+        meta: { title: 'Edit Customer' },
+        props: true
       },
       // Categories routes
       {
@@ -152,6 +195,33 @@ const routes: RouteRecordRaw[] = [
         name: 'EditCategory',
         component: CategoryForm,
         props: true,
+      },
+      // Orders routes
+      {
+        path: '/orders',
+        name: 'orders',
+        component: Orders,
+        meta: { title: 'Orders' }
+      },
+      {
+        path: '/orders/new',
+        name: 'new-order',
+        component: NewOrder,
+        meta: { title: 'New Order' }
+      },
+      {
+        path: '/orders/:id',
+        name: 'order-details',
+        component: OrderDetails,
+        meta: { title: 'Order Details' },
+        props: true
+      },
+      {
+        path: '/orders/:id/edit',
+        name: 'edit-order',
+        component: EditOrder,
+        meta: { title: 'Edit Order' },
+        props: true
       },
       // Auth pages
       {

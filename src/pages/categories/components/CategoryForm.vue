@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -25,7 +24,7 @@ import {
 import { 
   Loader2, 
   Save, 
-  ArrowLeft, 
+ 
   Tag,
   CheckCircle2,
   XCircle
@@ -39,8 +38,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['submit', 'cancel'])
 
-const route = useRoute()
-const router = useRouter()
+
 
 const form = ref<Omit<Category, 'id' | 'createdAt' | 'updatedAt' | 'productCount'>>({
   name: '',

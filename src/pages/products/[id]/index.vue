@@ -3,22 +3,8 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card'
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
-} from '@/components/ui/table'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { 
   AlertDialog, 
   AlertDialogAction, 
@@ -40,7 +26,8 @@ import {
   Box, 
   AlertCircle 
 } from 'lucide-vue-next'
-import { Product, mockProducts, productCategories, productStatuses } from '@/types/product'
+import type { Product } from '@/types/product'
+import { mockProducts, productCategories, productStatuses } from '@/types/product'
 
 const route = useRoute()
 const router = useRouter()
@@ -55,20 +42,6 @@ const formatPrice = (price: number) => {
     style: 'currency',
     currency: 'USD',
   }).format(price)
-}
-
-// Get status variant
-const getStatusVariant = (status: string) => {
-  switch (status) {
-    case 'in_stock':
-      return 'success'
-    case 'low_stock':
-      return 'warning'
-    case 'out_of_stock':
-      return 'destructive'
-    default:
-      return 'default'
-  }
 }
 
 // Get category label
@@ -167,7 +140,7 @@ onMounted(() => {
             <CardHeader>
               <div class="flex items-center justify-between">
                 <CardTitle class="text-2xl">{{ product.name }}</CardTitle>
-                <Badge :variant="getStatusVariant(product.status)" class="text-sm">
+                <Badge :variant="product.status === 'in_stock' ? 'default' : 'destructive'" class="text-sm">
                   {{ getStatusLabel(product.status) }}
                 </Badge>
               </div>
@@ -220,7 +193,7 @@ onMounted(() => {
                   <TableRow>
                     <TableCell class="font-medium">Status</TableCell>
                     <td>
-                      <Badge :variant="getStatusVariant(product.status)">
+                      <Badge :variant="product.status === 'in_stock' ? 'default' : 'destructive'">
                         {{ getStatusLabel(product.status) }}
                       </Badge>
                     </td>
@@ -283,7 +256,7 @@ onMounted(() => {
                 <div>
                   <p class="text-sm text-muted-foreground">Status</p>
                   <p class="font-medium">
-                    <Badge :variant="getStatusVariant(product.status)">
+                    <Badge :variant="product.status === 'in_stock' ? 'default' : 'destructive'">
                       {{ getStatusLabel(product.status) }}
                     </Badge>
                   </p>

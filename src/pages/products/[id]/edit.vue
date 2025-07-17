@@ -1,18 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { 
   Select, 
   SelectContent, 
@@ -32,7 +25,8 @@ import {
 } from '@/components/ui/alert-dialog'
 import { useToast } from '@/components/ui/toast/use-toast'
 import { Loader2, Save, ArrowLeft } from 'lucide-vue-next'
-import { Product, mockProducts, productCategories, productStatuses } from '@/types/product'
+import type { Product } from '@/types/product'
+import { mockProducts, productCategories, productStatuses } from '@/types/product'
 
 const route = useRoute()
 const router = useRouter()
@@ -134,14 +128,7 @@ const confirmCancel = () => {
   showCancelDialog.value = false
 }
 
-const handleNavigation = (path: string) => {
-  if (hasUnsavedChanges.value) {
-    pendingNavigation.value = path
-    showCancelDialog.value = true
-  } else {
-    router.push(path)
-  }
-}
+
 
 // Watch for form changes
 const originalForm = JSON.stringify(form.value)
