@@ -385,47 +385,47 @@ const deleteUser = () => {
       </div>
     </div>
 
-    <div class="rounded-md border">
+    <div class="rounded-md border dark:border-gray-800">
       <Table>
-        <TableHeader>
+        <TableHeader class="bg-gray-50 dark:bg-gray-900/50">
           <TableRow>
-            <TableHead class="w-[60px] px-2">
+            <TableHead class="w-[60px] px-2 text-gray-900 dark:text-gray-200">
               <div class="flex items-center space-x-2">
                 <Checkbox id="select-all" />
                 <Label for="select-all" class="sr-only">Select all</Label>
               </div>
             </TableHead>
-            <TableHead class="min-w-[180px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[180px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('name')">
                 <span>Name</span>
                 <component :is="getSortIcon('name')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('username')">
                 <span>Username</span>
                 <component :is="getSortIcon('username')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[200px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[200px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('email')">
                 <span>Email</span>
                 <component :is="getSortIcon('email')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[150px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[150px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('phone')">
                 <span>Phone</span>
                 <component :is="getSortIcon('phone')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('city')">
                 <span>City</span>
                 <component :is="getSortIcon('city')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[120px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('role')">
                 <span>Role</span>
                 <component :is="getSortIcon('role')" class="ml-1 h-4 w-4 flex-shrink-0" />
@@ -437,20 +437,20 @@ const deleteUser = () => {
                 <component :is="getSortIcon('status')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="min-w-[140px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            <TableHead class="min-w-[140px] px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">
               <div class="flex items-center cursor-pointer hover:bg-accent rounded px-2 -mx-2 py-1" @click="requestSort('lastLogin')">
                 <span>Last Login</span>
                 <component :is="getSortIcon('lastLogin')" class="ml-1 h-4 w-4 flex-shrink-0" />
               </div>
             </TableHead>
-            <TableHead class="relative w-[50px] px-2 py-3.5">
+            <TableHead class="relative w-[50px] px-2 py-3.5 text-gray-900 dark:text-gray-200">
               <span class="sr-only">Actions</span>
             </TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody class="divide-y divide-gray-200 bg-white">
-          <TableRow v-for="user in filteredUsers" :key="user.id" class="hover:bg-gray-50">
-            <TableCell class="px-2 py-4">
+        <TableBody class="divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-gray-950">
+          <TableRow v-for="user in filteredUsers" :key="user.id" class="hover:bg-gray-50 dark:hover:bg-gray-900/50">
+            <TableCell class="px-2 py-4 dark:border-gray-800">
               <div class="flex items-center">
                 <Checkbox :id="`user-${user.id}`" class="h-4 w-4" />
                 <Label :for="`user-${user.id}`" class="sr-only">Select user</Label>
@@ -458,27 +458,27 @@ const deleteUser = () => {
             </TableCell>
             <TableCell class="whitespace-nowrap px-3 py-4">
               <div class="flex items-center cursor-pointer group" @click="openViewDialog(user)">
-                <div class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium group-hover:bg-gray-300 transition-colors">
+                <div class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-300 font-medium group-hover:bg-gray-300 dark:group-hover:bg-gray-700 transition-colors">
                   {{ user.name.charAt(0).toUpperCase() }}
                 </div>
                 <div class="ml-4">
-                  <div class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <div class="font-medium text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {{ user.name }}
-                    <span class="ml-2 text-xs text-gray-500 group-hover:text-blue-500 transition-colors">View</span>
+                    <span class="ml-2 text-xs text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">View</span>
                   </div>
                 </div>
               </div>
             </TableCell>
-            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-              <span class="font-mono bg-gray-100 px-2 py-1 rounded">{{ user.username }}</span>
+            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
+              <span class="font-mono bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-800 dark:text-gray-200">{{ user.username }}</span>
             </TableCell>
-            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-900">
+            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-900 dark:text-gray-100">
               {{ user.email }}
             </TableCell>
-            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
               {{ user.phone }}
             </TableCell>
-            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
               <div class="flex items-center">
                 <MapPin class="h-4 w-4 mr-1.5 text-gray-400" />
                 {{ user.city }}
@@ -488,9 +488,9 @@ const deleteUser = () => {
               <div class="flex items-center">
                 <component :is="getRoleIcon(user.role)" class="mr-2 h-4 w-4 text-muted-foreground flex-shrink-0" />
                 <span class="px-2 py-1 text-xs rounded-full" :class="{
-                  'bg-purple-100 text-purple-800': user.role === 'Admin',
-                  'bg-blue-100 text-blue-800': user.role === 'Editor',
-                  'bg-green-100 text-green-800': user.role === 'Viewer'
+                  'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300': user.role === 'Admin',
+                  'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300': user.role === 'Editor',
+                  'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300': user.role === 'Viewer'
                 }">
                   {{ user.role }}
                 </span>
@@ -498,21 +498,21 @@ const deleteUser = () => {
             </TableCell>
             <TableCell class="whitespace-nowrap px-3 py-4">
               <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" :class="{
-                'bg-green-100 text-green-800': user.status === 'active',
-                'bg-gray-100 text-gray-800': user.status === 'inactive'
+                'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300': user.status === 'active',
+                'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300': user.status === 'inactive'
               }">
                 <span :class="[
                   'h-2 w-2 rounded-full mr-1.5',
-                  user.status === 'active' ? 'bg-green-500' : 'bg-gray-400'
+                  user.status === 'active' ? 'bg-green-500' : 'bg-gray-500'
                 ]"></span>
                 <span class="capitalize">{{ user.status }}</span>
                 <Check v-if="user.status === 'active'" class="ml-1 h-3 w-3 text-green-500" />
               </span>
             </TableCell>
-            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <TableCell class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
               <time :datetime="user.lastLogin">
                 {{ new Date(user.lastLogin).toLocaleDateString() }}
-                <div class="text-xs text-gray-400">
+                <div class="text-xs text-gray-400 dark:text-gray-500">
                   {{ new Date(user.lastLogin).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) }}
                 </div>
               </time>
