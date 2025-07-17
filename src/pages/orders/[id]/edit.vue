@@ -81,7 +81,7 @@ const orderItems = computed(() => {
     return {
       ...item,
       productName: product?.name || 'Unknown Product',
-      image: product?.images?.[0] || ''
+      image: product?.image || ''
     }
   })
 })

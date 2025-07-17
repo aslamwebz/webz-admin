@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useToast } from '@/components/ui/toast/use-toast'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { useToast } from '@/components/ui/toast/use-toast'
 import { customerStatuses } from '@/types/customer'
 
 const props = defineProps<{
@@ -22,6 +21,7 @@ const props = defineProps<{
     postalCode: string
     country: string
     status: 'active' | 'inactive' | 'banned'
+    additionalInfo?: string
   } | null
   isEditing?: boolean
 }>()
@@ -32,7 +32,6 @@ const emit = defineEmits<{
 }>()
 
 const { toast } = useToast()
-const router = useRouter()
 
 // Form state
 const form = ref({
@@ -46,6 +45,7 @@ const form = ref({
   postalCode: props.customer?.postalCode || '',
   country: props.customer?.country || 'USA',
   status: props.customer?.status || 'active',
+  additionalInfo: props.customer?.additionalInfo ?? '',
 })
 
 // Form validation
@@ -56,7 +56,9 @@ const hasUnsavedChanges = computed(() => {
   if (!props.customer) return true
   
   return Object.keys(form.value).some(key => {
-    return form.value[key as keyof typeof form.value] !== props.customer?.[key as keyof typeof props.customer]
+    const formKey = key as keyof typeof form.value
+    const customerValue = props.customer?.[formKey as keyof typeof props.customer] as any
+    return form.value[formKey] !== customerValue
   })
 })
 
@@ -74,6 +76,7 @@ watch(() => props.customer, (newCustomer) => {
       postalCode: newCustomer.postalCode,
       country: newCustomer.country,
       status: newCustomer.status,
+      additionalInfo: newCustomer.additionalInfo ?? '',
     }
   } else {
     // Reset form for new customer
@@ -88,6 +91,7 @@ watch(() => props.customer, (newCustomer) => {
       postalCode: '',
       country: 'USA',
       status: 'active',
+      additionalInfo: '',
     }
   }
 }, { immediate: true })
@@ -153,9 +157,10 @@ const handleSubmit = () => {
     const customerData = {
       ...form.value,
       id: props.customer?.id || `cus_${Math.random().toString(36).substr(2, 9)}`,
-      totalOrders: props.customer?.totalOrders || 0,
-      totalSpent: props.customer?.totalSpent || 0,
-      createdAt: props.customer?.createdAt || new Date().toISOString(),
+      // These fields are managed by the backend
+      totalOrders: 0,
+      totalSpent: 0,
+      createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     }
     
@@ -327,12 +332,14 @@ const handleCancel = () => {
       
       <div class="space-y-2">
         <Label for="notes">Notes</Label>
-        <Textarea 
-          id="notes" 
-          v-model="form.notes" 
-          placeholder="Additional notes about this customer"
-          class="min-h-[100px]"
-        />
+        <div class="grid gap-4">
+          <Textarea 
+            id="notes" 
+            v-model="form.additionalInfo" 
+            placeholder="Add any additional notes about this customer..."
+            class="min-h-[100px]"
+          />
+        </div>
       </div>
     </div>
     

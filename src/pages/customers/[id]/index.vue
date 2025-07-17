@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Edit, Mail, Phone, MapPin, Calendar, ShoppingBag, DollarSign, User, Home, Building, Hash, Globe } from 'lucide-vue-next'
+import { ArrowLeft, Edit, Mail, Phone, MapPin, Calendar, ShoppingBag, DollarSign, User } from 'lucide-vue-next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { mockCustomers } from '@/types/customer'
 import { mockOrders } from '@/types/order'
@@ -19,10 +19,6 @@ const isLoading = ref(true)
 // Computed
 const customerOrders = computed(() => {
   return orders.value.filter(order => order.customerId === route.params.id)
-})
-
-const totalSpent = computed(() => {
-  return customerOrders.value.reduce((sum, order) => sum + order.total, 0)
 })
 
 const lastOrder = computed(() => {

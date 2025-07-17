@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from '@/components/ui/toast/use-toast'
-import { mockCustomers } from '@/types/customer'
 import CustomerForm from './components/CustomerForm.vue'
 
 const router = useRouter()

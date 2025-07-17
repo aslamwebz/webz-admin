@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ArrowLeft, Plus, X, Loader2, Search, Check, ChevronDown } from 'lucide-vue-next'
+import { ArrowLeft, Plus, X, Loader2, Search, Check } from 'lucide-vue-next'
 import { mockCustomers } from '@/types/customer'
 import { mockProducts } from '@/types/product'
 
@@ -55,7 +55,7 @@ const filteredProducts = computed(() => {
   
   return mockProducts.filter(product => 
     product.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    product.sku?.toLowerCase().includes(searchQuery.value.toLowerCase())
+    product.name?.toLowerCase().includes(searchQuery.value.toLowerCase())
   ).slice(0, 5)
 })
 
@@ -67,7 +67,7 @@ const orderItems = computed(() => {
       productName: product?.name || 'Unknown Product',
       price: product?.price || 0,
       total: (product?.price || 0) * item.quantity,
-      image: product?.images?.[0] || ''
+      image: product?.image || ''
     }
   })
 })
@@ -334,8 +334,8 @@ const formatCurrency = (value: number) => {
                   >
                     <div class="h-8 w-8 rounded-md bg-muted mr-2 overflow-hidden">
                       <img 
-                        v-if="product.images?.[0]" 
-                        :src="product.images[0]" 
+                        v-if="product.image" 
+                        :src="product.image" 
                         :alt="product.name"
                         class="h-full w-full object-cover"
                       >
@@ -344,7 +344,7 @@ const formatCurrency = (value: number) => {
                       <div class="font-medium">{{ product.name }}</div>
                       <div class="text-xs text-muted-foreground">
                         {{ formatCurrency(product.price) }}
-                        <template v-if="product.sku">• {{ product.sku }}</template>
+                        <template v-if="product.id">• ID: {{ product.id }}</template>
                       </div>
                     </div>
                   </div>

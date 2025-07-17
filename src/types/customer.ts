@@ -12,6 +12,7 @@ export interface Customer {
   status: 'active' | 'inactive' | 'banned'
   totalOrders: number
   totalSpent: number
+  additionalInfo?: string
   createdAt: string
   updatedAt: string
 }

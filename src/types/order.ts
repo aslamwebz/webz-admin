@@ -1,5 +1,4 @@
 import type { Customer } from './customer'
-import type { Product } from './product'
 
 export interface OrderItem {
   productId: string

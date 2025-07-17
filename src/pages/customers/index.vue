@@ -79,10 +79,13 @@ const confirmDelete = () => {
     const index = mockCustomers.findIndex(c => c.id === selectedCustomer.value?.id)
     if (index !== -1) {
       // mockCustomers.splice(index, 1) // Uncomment in a real implementation
-      toast({
-        title: 'Customer deleted',
-        description: `${selectedCustomer.value.firstName} ${selectedCustomer.value.lastName} has been deleted.`,
-      })
+      const customer = selectedCustomer.value
+      if (customer) {
+        toast({
+          title: 'Customer deleted',
+          description: `${customer.firstName} ${customer.lastName} has been deleted.`,
+        })
+      }
     }
     
     isDeleting.value = false

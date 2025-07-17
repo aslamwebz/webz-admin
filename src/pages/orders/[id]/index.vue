@@ -1,9 +1,11 @@
 <script setup lang="ts">
+// Declare window type for TypeScript
+declare const window: Window & typeof globalThis
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, Edit, Printer, Truck, CreditCard, CheckCircle, XCircle, Clock, Mail, Phone, MapPin } from 'lucide-vue-next'
+import { ArrowLeft, Edit, Printer, Truck, CreditCard } from 'lucide-vue-next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { mockOrders } from '@/types/order'
 import { mockCustomers } from '@/types/customer'
@@ -26,7 +28,7 @@ const orderItems = computed(() => {
     return {
       ...item,
       productName: product?.name || 'Unknown Product',
-      image: product?.images?.[0] || ''
+      image: product?.image || ''
     }
   })
 })
@@ -140,7 +142,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex items-center space-x-2">
-        <Button variant="outline" @click="window.print()">
+        <Button variant="outline" @click="() => window.print()">
           <Printer class="mr-2 h-4 w-4" />
           Print
         </Button>
