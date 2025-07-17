@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import {
-  BadgeCheck,
+  User,
   Bell,
   ChevronsUpDown,
   CreditCard,
   LogOut,
-  Sparkles,
+  Zap,
+  UserCog,
+  HelpCircle
 } from 'lucide-vue-next'
 
 import {
@@ -40,6 +43,13 @@ const props = defineProps<{
 const { user } = props
 
 const { isMobile } = useSidebar()
+const router = useRouter()
+
+const handleLogout = () => {
+  // In a real app, you would call your auth store's logout method here
+  // For now, we'll just redirect to the login page
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -86,30 +96,58 @@ const { isMobile } = useSidebar()
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <Sparkles />
-              Upgrade to Pro
+            <DropdownMenuItem as-child>
+              <router-link to="/settings/profile" class="flex items-center w-full">
+                <User class="mr-2 h-4 w-4" />
+                <span>Profile</span>
+              </router-link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem as-child>
+              <router-link to="/settings/account" class="flex items-center w-full">
+                <UserCog class="mr-2 h-4 w-4" />
+                <span>Account Settings</span>
+              </router-link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem as-child>
+              <router-link to="/settings/billing" class="flex items-center w-full">
+                <CreditCard class="mr-2 h-4 w-4" />
+                <span>Billing</span>
+              </router-link>
+            </DropdownMenuItem>
+            
+            <DropdownMenuItem as-child>
+              <router-link to="/settings/notifications" class="flex items-center w-full">
+                <Bell class="mr-2 h-4 w-4" />
+                <span>Notifications</span>
+              </router-link>
             </DropdownMenuItem>
           </DropdownMenuGroup>
+          
           <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <BadgeCheck />
-              Account
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <CreditCard />
-              Billing
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Bell />
-              Notifications
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
+          
+          <DropdownMenuItem as-child>
+            <router-link to="/help" class="flex items-center w-full">
+              <HelpCircle class="mr-2 h-4 w-4" />
+              <span>Help & Support</span>
+            </router-link>
+          </DropdownMenuItem>
+          
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <LogOut />
-            Log out
+          
+          <DropdownMenuItem as-child>
+            <router-link to="/upgrade" class="flex items-center w-full text-primary font-medium">
+              <Zap class="mr-2 h-4 w-4" />
+              <span>Upgrade to Pro</span>
+            </router-link>
+          </DropdownMenuItem>
+          
+          <DropdownMenuSeparator />
+          
+          <DropdownMenuItem @click="handleLogout" class="text-destructive focus:text-destructive">
+            <LogOut class="mr-2 h-4 w-4" />
+            <span>Log out</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

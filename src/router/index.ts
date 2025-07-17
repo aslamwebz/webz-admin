@@ -15,6 +15,9 @@ const AccountSettings = () => import(/* webpackChunkName: "settings" */ '@/pages
 const AppearanceSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/appearance.vue')
 const NotificationsSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/notifications.vue')
 const DisplaySettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/display.vue')
+const BillingSettings = () => import(/* webpackChunkName: "settings" */ '@/pages/settings/billing.vue')
+const Upgrade = () => import(/* webpackChunkName: "upgrade" */ '@/pages/upgrade.vue')
+const Help = () => import(/* webpackChunkName: "help" */ '@/pages/help.vue')
 
 // Users page
 const Users = () => import(/* webpackChunkName: "users" */ '@/pages/users/index.vue')
@@ -89,6 +92,23 @@ const routes: RouteRecordRaw[] = [
         path: 'settings/display',
         name: 'DisplaySettings',
         component: DisplaySettings,
+      },
+      {
+        path: 'settings/billing',
+        name: 'BillingSettings',
+        component: BillingSettings,
+      },
+      {
+        path: 'upgrade',
+        name: 'Upgrade',
+        component: Upgrade,
+        meta: { layout: 'default' }
+      },
+      {
+        path: 'help',
+        name: 'Help',
+        component: Help,
+        meta: { layout: 'default' }
       },
       // Users route
       {
